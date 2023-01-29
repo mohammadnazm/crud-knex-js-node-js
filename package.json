@@ -1,0 +1,30 @@
+{
+    "name": "crud-knex-js-node-js",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "dependencies": {
+        "body-parser": "^1.20.1",
+        "express": "^4.18.2",
+        "knex": "^2.4.2",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.20",
+        "sqlite3": "^5.1.4"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mohammadnazm/crud-knex-js-node-js.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mohammadnazm/crud-knex-js-node-js/issues"
+    },
+    "homepage": "https://github.com/mohammadnazm/crud-knex-js-node-js#readme"
+}

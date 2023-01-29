@@ -1,4 +1,4 @@
-const knex = require("knex");
+const knex = require("../data/db");
 
 module.exports.addPerson = async (req, res) => {
   let add = {};
@@ -78,6 +78,27 @@ module.exports.addPersonFavorite = async (req, res) => {
       res.json({ status: "success", message: "success" });
     })
     .catch((err) => {
+      res.json({ status: "error", messae: "err" });
+    });
+};
+
+// From is not supported
+module.exports.getPersonWithFavorite = async (req, res) => {
+  let personId = req.params.personId;
+  await knex({ p: "tbl_person", f: "tbl_favorite" })
+    .select("*")
+    .from("tbl_person as person")
+    .leftJoin(
+      "tbl_favorite as favorite",
+      "person.personId",
+      "favorite.personId"
+    )
+    .where("person.personId", personId)
+    .then((doc) => {
+      res.json({ status: "success", message: doc });
+    })
+    .catch((err) => {
+      console.log(err);
       res.json({ status: "error", messae: "err" });
     });
 };

@@ -7,7 +7,7 @@ const {
   getPerson,
   addPersonFavorite,
   getPersonWithFavorite,
-} = require("../controllers/user.controller");
+} = require("../controller/user.controller");
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(express.json());
 
