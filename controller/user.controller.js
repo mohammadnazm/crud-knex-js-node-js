@@ -9,7 +9,7 @@ module.exports.addPerson = async (req, res) => {
   add.address = req.body.address;
   await knex("tbl_person")
     .insert(add)
-    .then((doc) => {
+    .then(() => {
       res.json({ status: "success", message: "success" });
     })
     .catch((err) => {
@@ -20,13 +20,12 @@ module.exports.addPerson = async (req, res) => {
 
 module.exports.updatePerson = async (req, res) => {
   let personId = req.params.personId;
-  console.log(personId);
   let update = {};
   if (req.body.firstName) {
     update.firstName = req.body.firstName;
   }
-  if (req.body.middelName) {
-    update.middelName = req.body.middelName;
+  if (req.body.middleName) {
+    update.middleName = req.body.middleName;
   }
   if (req.body.lastName) {
     update.lastName = req.body.lastName;
@@ -78,14 +77,14 @@ module.exports.addPersonFavorite = async (req, res) => {
       res.json({ status: "success", message: "success" });
     })
     .catch((err) => {
-      res.json({ status: "error", messae: "err" });
+      res.json({ status: "error", message: "err" });
     });
 };
 
 // From is not supported
 module.exports.getPersonWithFavorite = async (req, res) => {
   let personId = req.params.personId;
-  await knex({ p: "tbl_person", f: "tbl_favorite" })
+  await knex
     .select("*")
     .from("tbl_person as person")
     .leftJoin(
