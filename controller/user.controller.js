@@ -81,7 +81,6 @@ module.exports.addPersonFavorite = async (req, res) => {
     });
 };
 
-// From is not supported
 module.exports.getPersonWithFavorite = async (req, res) => {
   let personId = req.params.personId;
   await knex
